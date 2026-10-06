@@ -36,3 +36,9 @@ Status values: OPEN, ANSWERED (with evidence reference), SUPERSEDED.
 | Q-028 | 1 (run 1) | Is there a hard deadline or business event driving urgency for this change? | P1, P3 | Stage 2/3 | OPEN |
 | Q-029 | 1 (run 1) | Who accepts residual risk if the engagement proceeds with the known security gaps in place? | P1, P5 | Stage 2 | OPEN |
 | Q-030 | 1 (run 1) | Is any regulator or auditor already aware of or involved in this change? | P4, P10 | Stage 2 | OPEN |
+| Q-031 | 2 (run 1) | Who is the person behind the Engagement Lead role and who verifies their authority? | P1 | Stage 2/3 | OPEN |
+| Q-032 | 2 (run 1) | Who holds the AML/compliance role, and is a regulator or auditor involved? | P1, P4 | Stage 3 | OPEN |
+| Q-033 | 2 (run 1) | Who is the privacy owner for the PII in this system? | P1, P10 | Stage 3 | OPEN |
+| Q-034 | 2 (run 1) | Who is the architecture owner, given that the architecture notes are stale? | P1, P8 | Stage 5 | OPEN |
+| Q-035 | 2 (run 1) | What are the backups for the application, data, operations and AI-model areas? | P1, P3, P6, P7 | Stage 3 | OPEN |
+| Q-036 | 2 (run 1) | Was the security team consulted on the approved write boundaries? | P5 | Stage 2/24 | OPEN |

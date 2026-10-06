@@ -71,9 +71,19 @@
       "approved_by": "Engagement Lead"
     },
     "2": {
-      "status": "NOT STARTED",
-      "runs": 0,
-      "folder": "02-stakeholders"
+      "status": "CONDITIONAL PASS",
+      "runs": 1,
+      "folder": "02-stakeholders",
+      "branch": "main",
+      "started_at": "2026-10-06T19:04:14Z",
+      "base_commit": "18dfc3bebf8d0bbc7e9ec572c0d315543914d37a",
+      "last_check": {
+        "at": "2026-10-06T19:05:55Z",
+        "result": "CONDITIONAL PASS",
+        "errors": 0,
+        "warnings": 0
+      },
+      "completed_at": "2026-10-06T19:06:44Z"
     },
     "3": {
       "status": "NOT STARTED",
@@ -281,5 +291,5 @@
       "folder": "final-prd"
     }
   },
-  "updated_at": "2026-10-06T19:04:07Z"
+  "updated_at": "2026-10-06T19:06:44Z"
 }

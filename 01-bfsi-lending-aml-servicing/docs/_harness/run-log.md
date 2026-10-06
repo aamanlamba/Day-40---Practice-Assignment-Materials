@@ -16,3 +16,7 @@
 - 2026-10-06T19:04:07Z — stage 1: completed PASS, approved by Engagement Lead
 - 2026-10-06T19:04:07Z — stage 1: 7 artifact(s) promoted Draft/In Review → Approved on completion
 - 2026-10-06T19:04:07Z — stage 1: 3 open question(s) appended to docs/_harness/open-questions.md
+- 2026-10-06T19:04:14Z — stage 2: begin run 1 (mode=read-only, base=18dfc3bebf8d0bbc7e9ec572c0d315543914d37a, branch=main)
+- 2026-10-06T19:06:44Z — stage 2: completed CONDITIONAL PASS
+- 2026-10-06T19:06:44Z — stage 2: 7 artifact(s) promoted Draft/In Review → Approved on completion
+- 2026-10-06T19:06:44Z — stage 2: 6 open question(s) appended to docs/_harness/open-questions.md
