@@ -10,7 +10,7 @@ its own evidence (docs/<stage-folder>/) and harness state (docs/_harness/).
     fde.py begin    STAGE|next --repo PATH [--force]
     fde.py prompt   STAGE --repo PATH
     fde.py check    STAGE --repo PATH [--run-tests]
-    fde.py complete STAGE --repo PATH [--approved-by NAME] [--commit]
+    fde.py complete STAGE --repo PATH [--approved-by NAME] [--no-commit]   (commits stage evidence by default)
     fde.py run      STAGE --repo PATH [--permission-mode MODE]   (headless `claude -p`)
     fde.py manifest | lint
 """
@@ -239,6 +239,58 @@ def changed_files(repo: Path, base: str) -> list[str]:
     return sorted(files)
 
 
+# --------------------------------------------------------------------------- open question log
+
+QLOG = "open-questions.md"
+QLOG_HEADER = (
+    "# Open Question Log\n\n"
+    "Append-only log of questions raised at each stage. The harness appends rows from the stage report's\n"
+    "`## 8. Open Questions` table when a stage is completed; answered questions are marked, never deleted.\n\n"
+    "Status values: OPEN, ANSWERED (with evidence reference), SUPERSEDED.\n\n"
+    "| ID | Raised | Question | Ask | Resolve in | Status |\n|---|---|---|---|---|---|\n"
+)
+
+
+def ensure_question_log(repo: Path) -> Path:
+    p = repo / STATE_DIR / QLOG
+    if not p.exists():
+        p.write_text(QLOG_HEADER, encoding="utf-8")
+    return p
+
+
+def report_questions(report: Path) -> list[tuple[str, str, str]]:
+    """Rows (question, ask, resolve_in) from the `## 8. Open Questions` table of a stage report."""
+    if not report.exists():
+        return []
+    m = re.search(r"^##\s+8\.\s+Open Questions\s*$(.*?)(?=^##\s|\Z)", report.read_text(encoding="utf-8"), re.M | re.S)
+    rows = []
+    for line in (m.group(1) if m else "").splitlines():
+        cells = [c.strip() for c in line.strip().strip("|").split("|")]
+        if not line.strip().startswith("|") or len(cells) < 3 or set("".join(cells)) <= set("-: "):
+            continue
+        if cells[0].lower() in ("question", "id"):
+            continue
+        rows.append((cells[0], cells[1], cells[2]))
+    return rows
+
+
+def append_questions(repo: Path, s: dict, run: int) -> int:
+    log = ensure_question_log(repo)
+    text = log.read_text(encoding="utf-8")
+    ids = [int(x) for x in re.findall(r"^\|\s*Q-(\d+)\s*\|", text, re.M)]
+    n = max(ids, default=0)
+    known = {re.sub(r"\s+", " ", c).lower() for c in re.findall(r"^\|\s*Q-\d+\s*\|[^|]*\|\s*([^|]+?)\s*\|", text, re.M)}
+    added = []
+    for q, ask, resolve in report_questions(repo / STATE_DIR / "reports" / f"{stage_key(s)}.md"):
+        if re.sub(r"\s+", " ", q).lower() in known:
+            continue
+        n += 1
+        added.append(f"| Q-{n:03d} | {s['id']} (run {run}) | {q} | {ask} | {resolve} | OPEN |\n")
+    if added:
+        log.write_text(text.rstrip("\n") + "\n" + "".join(added), encoding="utf-8")
+    return len(added)
+
+
 # --------------------------------------------------------------------------- commands
 
 def cmd_init(a) -> None:
@@ -431,6 +483,7 @@ def cmd_begin(a) -> None:
     elif is_git(repo):
         v["branch"] = git(repo, "branch", "--show-current", check=False) or "(detached)"
 
+    ensure_question_log(repo)
     v["runs"] = v.get("runs", 0) + 1
     v["status"] = "IN PROGRESS"
     v["started_at"] = now()
@@ -528,6 +581,8 @@ def run_check(repo: Path, st: dict, s: dict, run_tests: bool = False) -> dict:
         for sec in REPORT_SECTIONS:
             if not re.search(rf"^##\s+{re.escape(sec)}\s*$", body or "", re.M):
                 errs.append(f"stage report: missing section `## {sec}`")
+        if not re.search(r"^##\s+8\.\s+Open Questions\s*$", body or "", re.M):
+            warns.append("stage report: missing `## 8. Open Questions` (list open questions, or write `None`)")
 
     # 3. write boundaries
     if is_git(repo) and v.get("base_commit"):
@@ -615,15 +670,20 @@ def cmd_complete(a) -> None:
         v["approved_by"] = a.approved_by
     save_state(repo, st)
     log_event(repo, f"stage {s['id']}: completed {v['status']}" + (f", approved by {a.approved_by}" if a.approved_by else ""))
-    if a.commit and is_git(repo):
+    added = append_questions(repo, s, v.get("runs", 1))
+    if added:
+        log_event(repo, f"stage {s['id']}: {added} open question(s) appended to {STATE_DIR}/{QLOG}")
+    committed = False
+    if not a.no_commit and is_git(repo):
         git(repo, "add", "--", f"docs/{s['folder']}", STATE_DIR)
         msg = f"fde({s['id']}): complete stage {s['id']} — {s['name']} [{v['status']}]"
         if a.approved_by:
             msg += f"\n\nApproved-by: {a.approved_by}"
         if git(repo, "diff", "--cached", "--name-only"):
             git(repo, "commit", "-m", msg)
+            committed = True
     n = compute_next(st)
-    print(f"Stage {s['id']} → {v['status']}. Next: {n['id'] + ' — ' + n['name'] if n else 'spine complete'}")
+    print(f"Stage {s['id']} → {v['status']}" + (" (evidence committed)" if committed else "") + f". Next: {n['id'] + ' — ' + n['name'] if n else 'spine complete'}")
 
 
 def cmd_config(a) -> None:
@@ -724,7 +784,8 @@ def main(argv=None) -> None:
     add("check", cmd_check, True).add_argument("--run-tests", action="store_true")
     sp = add("complete", cmd_complete, True)
     sp.add_argument("--approved-by")
-    sp.add_argument("--commit", action="store_true")
+    sp.add_argument("--commit", action="store_true", help="deprecated: committing is now the default")
+    sp.add_argument("--no-commit", action="store_true", help="record completion without committing evidence")
     sp = add("config", cmd_config)
     sp.add_argument("--author")
     sp.add_argument("--test-cmd", dest="test_command")

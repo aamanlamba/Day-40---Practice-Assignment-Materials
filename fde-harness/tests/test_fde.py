@@ -119,6 +119,29 @@ class HarnessTest(unittest.TestCase):
         self.assertEqual(self.fde("next").stdout.strip(), "0B")
         self.assertIn("fde(0A)", sh(self.repo, "git", "log", "-1", "--format=%s").stdout)
 
+    def test_complete_commits_by_default_and_logs_questions(self):
+        self.fde("begin", "0A")
+        self.assertTrue((self.repo / "docs/_harness/open-questions.md").exists())
+        self.fill("0A")
+        rp = self.repo / "docs/_harness/reports/0a.md"
+        rp.write_text(rp.read_text() + "\n## 8. Open Questions\n\n| Question | Ask | Resolve in |\n|---|---|---|\n"
+                      "| Who owns data? | Data owner | Stage 2 |\n| Which rules apply? | Product owner | Stage 5 |\n")
+        out = self.fde("complete", "0A").stdout
+        self.assertIn("evidence committed", out)
+        self.assertIn("fde(0A)", sh(self.repo, "git", "log", "-1", "--format=%s").stdout)
+        self.assertEqual(sh(self.repo, "git", "status", "--porcelain").stdout.strip(), "")
+        log = (self.repo / "docs/_harness/open-questions.md").read_text()
+        self.assertIn("| Q-001 | 0A (run 1) | Who owns data? | Data owner | Stage 2 | OPEN |", log)
+        self.assertIn("Q-002", log)
+        # re-reading the same report does not duplicate rows
+        s = fde.stage("0A")
+        self.assertEqual(fde.append_questions(self.repo, s, 1), 0)
+
+    def test_complete_no_commit_flag(self):
+        self.fde("begin", "0A"); self.fill("0A")
+        self.fde("complete", "0A", "--no-commit")
+        self.assertNotIn("fde(0A)", sh(self.repo, "git", "log", "-1", "--format=%s").stdout)
+
     def test_read_only_boundary_violation(self):
         self.fde("begin", "0A")
         self.fill("0A")

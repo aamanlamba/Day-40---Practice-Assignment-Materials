@@ -22,3 +22,8 @@ stage_status: "PASS"       # PASS | CONDITIONAL PASS | BLOCKED
 ## 6. Blocking Issues
 
 ## 7. Recommended Next Action
+
+## 8. Open Questions
+
+| Question | Ask | Resolve in |
+|---|---|---|

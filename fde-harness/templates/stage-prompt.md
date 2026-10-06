@@ -94,3 +94,4 @@ Then return to the user, in this order:
 5. Artifacts created
 6. Blocking issues
 7. Recommended next action
+8. Open questions (also listed in the report's `## 8. Open Questions` table, columns Question / Ask / Resolve in; the harness appends them to `docs/_harness/open-questions.md` on completion; write `None` if there are none)
