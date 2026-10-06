@@ -86,9 +86,19 @@
       "completed_at": "2026-10-06T19:06:44Z"
     },
     "3": {
-      "status": "NOT STARTED",
-      "runs": 0,
-      "folder": "03-problem-value"
+      "status": "CONDITIONAL PASS",
+      "runs": 1,
+      "folder": "03-problem-value",
+      "branch": "main",
+      "started_at": "2026-10-06T19:06:46Z",
+      "base_commit": "876b9ae91a538af4e830d5f20ad9af2dd2a4dad0",
+      "last_check": {
+        "at": "2026-10-06T19:08:46Z",
+        "result": "CONDITIONAL PASS",
+        "errors": 0,
+        "warnings": 0
+      },
+      "completed_at": "2026-10-06T19:09:25Z"
     },
     "4": {
       "status": "NOT STARTED",
@@ -291,5 +301,5 @@
       "folder": "final-prd"
     }
   },
-  "updated_at": "2026-10-06T19:06:44Z"
+  "updated_at": "2026-10-06T19:09:25Z"
 }

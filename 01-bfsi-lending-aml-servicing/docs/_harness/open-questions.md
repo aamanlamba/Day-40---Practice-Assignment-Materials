@@ -42,3 +42,7 @@ Status values: OPEN, ANSWERED (with evidence reference), SUPERSEDED.
 | Q-034 | 2 (run 1) | Who is the architecture owner, given that the architecture notes are stale? | P1, P8 | Stage 5 | OPEN |
 | Q-035 | 2 (run 1) | What are the backups for the application, data, operations and AI-model areas? | P1, P3, P6, P7 | Stage 3 | OPEN |
 | Q-036 | 2 (run 1) | Was the security team consulted on the approved write boundaries? | P5 | Stage 2/24 | OPEN |
+| Q-037 | 3 (run 1) | How many missed or late-detected cases exist, and what do they cost? | P4 | Stage 4 | OPEN |
+| Q-038 | 3 (run 1) | Is alert generation in scope, or only handling of alerts already raised? | P1, P4 | Stage 3 follow-up | OPEN |
+| Q-039 | 3 (run 1) | Are customer-facing communications affected by this change? | P3, P4 | Stage 3 follow-up | OPEN |
+| Q-040 | 3 (run 1) | Do reviewers record reasoning anywhere today (outside this system)? | P7, analysts | Stage 4/5 | OPEN |

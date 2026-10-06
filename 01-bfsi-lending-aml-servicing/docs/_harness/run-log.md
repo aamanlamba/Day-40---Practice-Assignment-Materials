@@ -20,3 +20,7 @@
 - 2026-10-06T19:06:44Z — stage 2: completed CONDITIONAL PASS
 - 2026-10-06T19:06:44Z — stage 2: 7 artifact(s) promoted Draft/In Review → Approved on completion
 - 2026-10-06T19:06:44Z — stage 2: 6 open question(s) appended to docs/_harness/open-questions.md
+- 2026-10-06T19:06:46Z — stage 3: begin run 1 (mode=read-only, base=876b9ae91a538af4e830d5f20ad9af2dd2a4dad0, branch=main)
+- 2026-10-06T19:09:25Z — stage 3: completed CONDITIONAL PASS
+- 2026-10-06T19:09:25Z — stage 3: 11 artifact(s) promoted Draft/In Review → Approved on completion
+- 2026-10-06T19:09:25Z — stage 3: 4 open question(s) appended to docs/_harness/open-questions.md
