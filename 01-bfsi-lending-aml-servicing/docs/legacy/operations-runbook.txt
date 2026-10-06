@@ -1,0 +1,6 @@
+Inherited operations notes (possibly stale):
+- Batch exceptions are usually inspected in the morning.
+- Support staff may use CSV exports during incidents.
+- Some upstream systems retry without stable idempotency keys.
+- A successful HTTP response does not always mean downstream processing completed.
+Validate all statements against code, data and tests before relying on them.

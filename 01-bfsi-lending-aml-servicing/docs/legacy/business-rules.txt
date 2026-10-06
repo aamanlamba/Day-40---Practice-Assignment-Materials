@@ -1,0 +1,5 @@
+Legacy notes:
+- status codes originated in older upstream systems
+- some teams use local spreadsheets to correct exceptions
+- daily reconciliation is expected before 08:00 local time
+- nulls may mean unknown, not-applicable, not-received, or processing-error

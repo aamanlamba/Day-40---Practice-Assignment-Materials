@@ -1,0 +1,16 @@
+{
+  "title": "BFSI \u2014 Digital Lending, AML & Loan Servicing Legacy Operations",
+  "panels": [
+    {
+      "title": "HTTP Requests",
+      "type": "timeseries",
+      "targets": []
+    },
+    {
+      "title": "Errors",
+      "type": "stat",
+      "targets": []
+    }
+  ],
+  "schemaVersion": 38
+}

@@ -1,0 +1,6 @@
+area,owner,backup,approval_authority,status
+application,app-team,,product-owner,active
+data,data-ops,,unknown,unclear
+security,security-team,platform-team,ciso-delegate,active
+operations,ops-lead,,business-ops,active
+ai-model,, , ,not-established

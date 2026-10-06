@@ -1,0 +1,119 @@
+[
+  {
+    "file": "alerts.csv",
+    "rows": 1800,
+    "columns": 8,
+    "headers": [
+      "alert_id",
+      "customer_id",
+      "alert_type",
+      "severity",
+      "status",
+      "source",
+      "owner",
+      "score"
+    ]
+  },
+  {
+    "file": "applications.csv",
+    "rows": 5000,
+    "columns": 10,
+    "headers": [
+      "application_id",
+      "customer_id",
+      "product",
+      "amount",
+      "currency",
+      "status",
+      "credit_score",
+      "decision_source",
+      "channel",
+      "application_date"
+    ]
+  },
+  {
+    "file": "baseline_metrics.csv",
+    "rows": 180,
+    "columns": 7,
+    "headers": [
+      "date",
+      "work_items",
+      "avg_cycle_minutes",
+      "manual_effort_hours",
+      "error_rate_pct",
+      "exception_rate_pct",
+      "estimated_cost_units"
+    ]
+  },
+  {
+    "file": "beneficiaries.csv",
+    "rows": 1200,
+    "columns": 6,
+    "headers": [
+      "beneficiary_id",
+      "customer_id",
+      "name",
+      "country",
+      "bank_code",
+      "risk_flag"
+    ]
+  },
+  {
+    "file": "customers.csv",
+    "rows": 3500,
+    "columns": 10,
+    "headers": [
+      "customer_id",
+      "first_name",
+      "full_name",
+      "city",
+      "segment",
+      "age",
+      "email",
+      "phone",
+      "risk_band",
+      "pep_flag"
+    ]
+  },
+  {
+    "file": "kyc_cases.csv",
+    "rows": 1200,
+    "columns": 6,
+    "headers": [
+      "kyc_case_id",
+      "customer_id",
+      "status",
+      "document_type",
+      "verification_source",
+      "age_days"
+    ]
+  },
+  {
+    "file": "repayments.csv",
+    "rows": 5000,
+    "columns": 6,
+    "headers": [
+      "repayment_id",
+      "application_id",
+      "customer_id",
+      "amount",
+      "status",
+      "days_past_due"
+    ]
+  },
+  {
+    "file": "transactions.csv",
+    "rows": 9000,
+    "columns": 8,
+    "headers": [
+      "transaction_id",
+      "customer_id",
+      "amount",
+      "currency",
+      "direction",
+      "rail",
+      "status",
+      "txn_date"
+    ]
+  }
+]
