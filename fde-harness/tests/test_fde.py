@@ -216,5 +216,37 @@ class HarnessTest(unittest.TestCase):
         self.assertEqual(self.fde("check", "10").returncode, 0)
 
 
+class SubfolderRepoTest(unittest.TestCase):
+    """Target repository is a subfolder of a larger git repository."""
+
+    def test_boundaries_relative_to_subfolder(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            outer = Path(tmp) / "outer"
+            repo = outer / "sub-repo"
+            (repo / "app").mkdir(parents=True)
+            (repo / "app" / "main.py").write_text("x\n")
+            (outer / "elsewhere.txt").write_text("x\n")
+            g = ("git", "-c", "user.email=t@t", "-c", "user.name=t")
+            sh(outer, "git", "init", "-q", "-b", "main"); sh(outer, "git", "add", "-A"); sh(outer, *g, "commit", "-qm", "b")
+            run = lambda *a, ok=True: sh(repo, sys.executable, FDE, *a, "--repo", ".", ok=ok)
+            run("init"); sh(outer, "git", "add", "-A"); sh(outer, *g, "commit", "-qm", "h")
+            run("begin", "0A")
+            s = fde.stage("0A")
+            (repo / "docs" / s["folder"]).mkdir(parents=True, exist_ok=True)
+            for a in s["artifacts"]:
+                (repo / "docs" / s["folder"] / a).write_text(fake_artifact("0A", a))
+            (repo / "docs/_harness/reports/0a.md").write_text(report("0A"))
+            (outer / "elsewhere.txt").write_text("changed outside the target\n")  # ignored: not in target
+            self.assertEqual(run("check", "0A").returncode, 0)
+            (repo / "app" / "main.py").write_text("changed\n")
+            self.assertIn("boundary: app/main.py", run("check", "0A", ok=False).stdout)
+            (repo / "app" / "main.py").write_text("x\n")
+            run("complete", "0A", "--commit")
+            self.assertEqual(sh(outer, "git", "status", "--porcelain", "--", "sub-repo").stdout.strip(), "")
+            (outer / "elsewhere.txt").write_text("dirty outside the target\n")
+            self.assertTrue(sh(outer, "git", "status", "--porcelain").stdout.strip())
+            self.assertEqual(run("begin", "15", "--force").returncode, 0)  # dirty check scoped to target
+
+
 if __name__ == "__main__":
     unittest.main()

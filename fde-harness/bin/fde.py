@@ -233,7 +233,8 @@ def head(repo: Path):
 
 
 def changed_files(repo: Path, base: str) -> list[str]:
-    files = set(filter(None, git(repo, "diff", "--name-only", base).splitlines()))
+    # --relative / ls-files keep paths relative to the target, which may be a subfolder of a larger git repo
+    files = set(filter(None, git(repo, "diff", "--name-only", "--relative", base).splitlines()))
     files |= set(filter(None, git(repo, "ls-files", "--others", "--exclude-standard").splitlines()))
     return sorted(files)
 
@@ -409,7 +410,7 @@ def cmd_begin(a) -> None:
     if unmet and not a.force:
         raise SystemExit(f"Stage {s['id']} blocked: dependencies not PASS/CONDITIONAL PASS: {', '.join(unmet)}. "
                          "Complete them first or use --force (recorded in the run log).")
-    if s["mode"] == "write" and is_git(repo) and git(repo, "status", "--porcelain"):
+    if s["mode"] == "write" and is_git(repo) and git(repo, "status", "--porcelain", "--", "."):
         raise SystemExit("Working tree is dirty. Commit or stash changes before beginning a WRITE-mode stage.")
 
     # preserve earlier evidence before a re-run
