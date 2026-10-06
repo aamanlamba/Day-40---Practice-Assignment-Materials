@@ -1,0 +1,242 @@
+{
+  "harness_version": "1.0.0",
+  "harness_path": "/Users/aamanlamba/Code/Day-40---Practice-Assignment-Materials/fde-harness",
+  "engagement": "01-bfsi-lending-aml-servicing",
+  "author": "Aaman Lamba / Claude Code",
+  "test_command": ".venv/bin/python -m pytest",
+  "initialised_at": "2026-10-06T18:34:44Z",
+  "initial_commit": "a15ca18062b10ce3da7bddccfb04b2d9fa74d8f6",
+  "stages": {
+    "0A": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "00-preflight/discovery"
+    },
+    "0B": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "00-preflight/operating-contract"
+    },
+    "0C": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "00-preflight/ai-economics"
+    },
+    "1": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "01-engagement"
+    },
+    "2": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "02-stakeholders"
+    },
+    "3": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "03-problem-value"
+    },
+    "4": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "04-baseline-kpis"
+    },
+    "5": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "05-current-state"
+    },
+    "6": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "06-root-cause"
+    },
+    "7": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "07-repo-assessment"
+    },
+    "8": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "08-ai-qualification"
+    },
+    "9": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "09-initial-prd"
+    },
+    "10": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "10-architecture"
+    },
+    "11": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "11-data-context"
+    },
+    "12": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "12-specs"
+    },
+    "13": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "13-traceability"
+    },
+    "14": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "14-transformation"
+    },
+    "15": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "15-modernization"
+    },
+    "16": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "16-repo-validation"
+    },
+    "17": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "17-implementation-prd"
+    },
+    "18": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "18-delivery"
+    },
+    "19": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "19-intelligence"
+    },
+    "20": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "20-application"
+    },
+    "21": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "21-integration"
+    },
+    "22": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "22-agentic-engineering"
+    },
+    "23": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "23-human-control"
+    },
+    "24": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "24-security-privacy"
+    },
+    "25": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "25-governance"
+    },
+    "26": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "26-tevv"
+    },
+    "27": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "27-hardening"
+    },
+    "28": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "28-resilience"
+    },
+    "29": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "29-incident-bcdr"
+    },
+    "30": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "30-release"
+    },
+    "31": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "31-observability"
+    },
+    "32": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "32-finops"
+    },
+    "33": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "33-vendor-risk"
+    },
+    "34": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "34-after-kpis"
+    },
+    "35": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "35-value-leakage"
+    },
+    "36": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "36-benefits"
+    },
+    "37": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "37-operating-model"
+    },
+    "38": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "38-handover"
+    },
+    "39": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "39-continuous-improvement"
+    },
+    "40": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "40-scale"
+    },
+    "41": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "41-retirement"
+    },
+    "42": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "42-executive"
+    },
+    "FINAL": {
+      "status": "NOT STARTED",
+      "runs": 0,
+      "folder": "final-prd"
+    }
+  },
+  "updated_at": "2026-10-06T18:34:44Z"
+}

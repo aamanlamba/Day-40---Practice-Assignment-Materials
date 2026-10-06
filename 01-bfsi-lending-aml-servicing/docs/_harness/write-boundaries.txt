@@ -1,0 +1,7 @@
+# Human-approved repository write boundaries for WRITE-mode stages (15, 19-22, 24, 26-28, 30, 31).
+# One glob per line, relative to the repository root, e.g.  backend/**   tests/**
+# Populate ONLY after Stage 0B proposes them in
+#   docs/00-preflight/operating-contract/repository-write-boundaries.md
+# and a human approves them (record the approver below). Empty = no implementation writes allowed.
+# approved-by:
+# approved-at:
