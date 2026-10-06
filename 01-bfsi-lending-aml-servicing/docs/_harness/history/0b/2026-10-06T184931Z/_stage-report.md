@@ -1,0 +1,45 @@
+---
+stage: "0B"
+stage_name: "Provisional Operating Contract & Engineering Boundaries"
+date: "2026-10-06"
+author: "Aaman Lamba / Claude Code"
+run: 1
+stage_status: "PASS"
+---
+
+# Stage 0B Report — Provisional Operating Contract & Engineering Boundaries
+
+## 1. Stage Status
+
+PASS. All 12 artifacts exist under `docs/00-preflight/operating-contract/`. The contract is sufficient for Stage 0C and read-only stages, but not for any write stage. Human approval is still to be recorded at completion.
+
+## 2. Key Findings
+
+- `docs/_harness/write-boundaries.txt` has no globs, so no write stage can run until a human approves some.
+- Proposed per-stage write globs cover Stages 15, 19-22, 24, 26-28, 30 and 31; `data/**` and `docs/legacy/**` are protected.
+- Production, staging, real partner/legacy endpoints and real Postgres are prohibited. No evidence shows they exist.
+- 12 human-approval triggers (H1-H12) and 15 testable stop conditions (S-01 to S-15) are defined.
+- `contact-matrix.csv` has no named people, blank backups, an unclear data owner and no AI-model owner, so every role is PROVISIONAL.
+
+## 3. Major Risks
+
+- Placeholder roles could be mistaken for real authority (G-01, G-09).
+- Single-person approval is a segregation-of-duties weakness.
+- The proposed `backend/app/**` glob is wide.
+- Regulatory constraints are unknown (G-10), so the contract may be missing terms.
+
+## 4. Assumptions / Unknowns
+
+The harness user acts as interim approver, and synthetic data stays synthetic (A-02). Unknowns are the sponsor and approvers, compliance obligations, real environments, and budget (Stage 0C). The 18 open governance decisions (G-01 to G-18) are scheduled for Stages 2, 23, 25 and 37.
+
+## 5. Artifacts Created
+
+In `docs/00-preflight/operating-contract/`: `provisional-operating-contract.md`, `scope-boundaries.md`, `repository-write-boundaries.md`, `environment-access-boundaries.md`, `data-use-constraints.md`, `provisional-tool-agent-permissions.md`, `provisional-human-approval-rules.md`, `evidence-contract.md`, `change-control-rules.md`, `stop-conditions.md`, `open-governance-decisions.md`, `operating-contract-readiness.md`. Plus this report.
+
+## 6. Blocking Issues
+
+None for Stage 0C. Write stages are blocked until a human approves the globs.
+
+## 7. Recommended Next Action
+
+Review the artifacts, then run `fde.py complete 0B --approved-by <name>`. Copy the globs you approve into `docs/_harness/write-boundaries.txt` before any write stage. Then run Stage 0C.
