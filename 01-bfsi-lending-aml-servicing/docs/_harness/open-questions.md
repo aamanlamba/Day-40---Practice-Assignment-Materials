@@ -33,3 +33,6 @@ Status values: OPEN, ANSWERED (with evidence reference), SUPERSEDED.
 | Q-025 | 0C (run 1) | What is the daily alert/exception arrival rate and peak profile? | P7 | Stage 4/5 | OPEN |
 | Q-026 | 0C (run 1) | What is the actual loaded analyst cost and engineering capacity? | P1, P2 | Stage 3 | OPEN |
 | Q-027 | 0C (run 1) | What latency does the current API achieve under load? | P8 | Stage 5/6 | OPEN |
+| Q-028 | 1 (run 1) | Is there a hard deadline or business event driving urgency for this change? | P1, P3 | Stage 2/3 | OPEN |
+| Q-029 | 1 (run 1) | Who accepts residual risk if the engagement proceeds with the known security gaps in place? | P1, P5 | Stage 2 | OPEN |
+| Q-030 | 1 (run 1) | Is any regulator or auditor already aware of or involved in this change? | P4, P10 | Stage 2 | OPEN |
