@@ -1,6 +1,6 @@
 # Harness state
 
-- `registry.json` — one entry per initialised target repository: engagement name, stages done / total, next stage, blocked stages, last update. Updated automatically by `fde.py` (override the location with `FDE_REGISTRY=/path/registry.json`).
+- `registry.json` — **local, git-ignored run state**: one entry per initialised target repository: engagement name, stages done / total, next stage, blocked stages, last update. Updated automatically by `fde.py` (override the location with `FDE_REGISTRY=/path/registry.json`).
 - Per-repository authoritative state lives **in the target repository** under `docs/_harness/state.json` so that it is version-controlled alongside the evidence it describes. Schema:
 
 ```jsonc

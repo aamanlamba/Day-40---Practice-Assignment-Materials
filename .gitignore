@@ -1,0 +1,2 @@
+# AI FDE harness run state (machine-specific; authoritative state is docs/_harness/state.json in each target repo)
+fde-harness/state/registry.json
