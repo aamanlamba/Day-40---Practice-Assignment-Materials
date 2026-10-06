@@ -8,3 +8,7 @@
 - 2026-10-06T18:49:31Z — stage 0B: begin run 2 (mode=read-only, base=b2c1f27ad57ef14370595d521d542b88cb7b4f0b, branch=main)
 - 2026-10-06T18:52:34Z — stage 0B: completed PASS, approved by Engagement Lead
 - 2026-10-06T18:56:59Z — write boundaries approved by Engagement Lead (docs/_harness/write-boundaries.txt); personal name replaced by role 'Engagement Lead' in evidence, state and run-log at user request
+- 2026-10-06T18:56:59Z — stage 0C: begin run 1 (mode=read-only, base=a9c558882ede5efd563ccff83e8c1cda74dca30b, branch=main)
+- 2026-10-06T19:00:11Z — stage 0C: completed PASS, approved by Engagement Lead
+- 2026-10-06T19:00:11Z — stage 0C: 13 artifact(s) promoted Draft/In Review → Approved on completion
+- 2026-10-06T19:00:11Z — stage 0C: 5 open question(s) appended to docs/_harness/open-questions.md

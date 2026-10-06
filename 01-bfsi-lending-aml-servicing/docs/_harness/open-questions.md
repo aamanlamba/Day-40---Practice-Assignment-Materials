@@ -28,3 +28,8 @@ Status values: OPEN, ANSWERED (with evidence reference), SUPERSEDED.
 | Q-020 | 0B (G-14, G-15) | What is the steady-state RACI, support and incident model? | P1, P7 | Stage 37 | OPEN |
 | Q-021 | 0B (data-use) | Does the tool provider retain prompt inputs, and is that acceptable for this data? | P5, P10 | Stage 2 | OPEN |
 | Q-022 | 0B (this run) | Are the assumed personas P1-P10 acceptable as working placeholders? | P2 | Stage 2 | OPEN |
+| Q-023 | 0C (run 1) | What is a "work item" in baseline_metrics.csv (alert, application, exception, repayment)? | P7 (Operations Lead) | Stage 4 | OPEN |
+| Q-024 | 0C (run 1) | What does `estimated_cost_units` measure and in what currency? | P7, P1 | Stage 4 | OPEN |
+| Q-025 | 0C (run 1) | What is the daily alert/exception arrival rate and peak profile? | P7 | Stage 4/5 | OPEN |
+| Q-026 | 0C (run 1) | What is the actual loaded analyst cost and engineering capacity? | P1, P2 | Stage 3 | OPEN |
+| Q-027 | 0C (run 1) | What latency does the current API achieve under load? | P8 | Stage 5/6 | OPEN |
