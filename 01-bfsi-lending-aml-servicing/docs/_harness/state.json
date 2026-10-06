@@ -8,14 +8,33 @@
   "initial_commit": "a15ca18062b10ce3da7bddccfb04b2d9fa74d8f6",
   "stages": {
     "0A": {
-      "status": "NOT STARTED",
-      "runs": 0,
-      "folder": "00-preflight/discovery"
+      "status": "PASS",
+      "runs": 1,
+      "folder": "00-preflight/discovery",
+      "branch": "main",
+      "started_at": "2026-10-06T18:35:20Z",
+      "base_commit": "863a1f807781d2c19b49b27fb2ad182a574ab1df",
+      "last_check": {
+        "at": "2026-10-06T18:39:21Z",
+        "result": "PASS",
+        "errors": 0,
+        "warnings": 0
+      },
+      "completed_at": "2026-10-06T18:43:46Z"
     },
     "0B": {
-      "status": "NOT STARTED",
-      "runs": 0,
-      "folder": "00-preflight/operating-contract"
+      "status": "IN PROGRESS",
+      "runs": 1,
+      "folder": "00-preflight/operating-contract",
+      "branch": "main",
+      "started_at": "2026-10-06T18:43:56Z",
+      "base_commit": "863a1f807781d2c19b49b27fb2ad182a574ab1df",
+      "last_check": {
+        "at": "2026-10-06T18:46:59Z",
+        "result": "FAIL",
+        "errors": 12,
+        "warnings": 0
+      }
     },
     "0C": {
       "status": "NOT STARTED",
@@ -238,5 +257,5 @@
       "folder": "final-prd"
     }
   },
-  "updated_at": "2026-10-06T18:34:44Z"
+  "updated_at": "2026-10-06T18:46:59Z"
 }
