@@ -137,6 +137,15 @@ class HarnessTest(unittest.TestCase):
         s = fde.stage("0A")
         self.assertEqual(fde.append_questions(self.repo, s, 1), 0)
 
+    def test_complete_promotes_reviewed_artifacts(self):
+        self.fde("begin", "0A"); self.fill("0A")
+        folder = self.repo / "docs" / fde.stage("0A")["folder"]
+        first, second = sorted(folder.glob("*.md"))[:2]
+        second.write_text(second.read_text().replace('status: "Draft"', 'status: "Provisional"'))
+        self.fde("complete", "0A")
+        self.assertIn('status: "Approved"', first.read_text())
+        self.assertIn('status: "Provisional"', second.read_text())
+
     def test_complete_no_commit_flag(self):
         self.fde("begin", "0A"); self.fill("0A")
         self.fde("complete", "0A", "--no-commit")

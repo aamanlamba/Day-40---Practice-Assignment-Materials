@@ -649,6 +649,22 @@ def cmd_check(a) -> None:
     sys.exit(0 if out["result"] in DONE else 1)
 
 
+def mark_reviewed(repo: Path, s: dict) -> int:
+    """On completion (a human has reviewed the stage), promote Draft / In Review artifacts to Approved.
+
+    `Provisional` and `Superseded` are deliberate states and are left alone.
+    """
+    n = 0
+    for f in sorted((repo / "docs" / s["folder"]).glob("*.md")):
+        text = f.read_text(encoding="utf-8")
+        new = re.sub(r'^(status:\s*)(["\']?)(draft|in review)\2(\s*(?:#.*)?)$', r'\1"Approved"\4', text,
+                     count=1, flags=re.M | re.I)
+        if new != text and text.startswith("---"):
+            f.write_text(new, encoding="utf-8")
+            n += 1
+    return n
+
+
 def cmd_complete(a) -> None:
     repo = Path(a.repo).resolve()
     st = load_state(repo)
@@ -670,6 +686,9 @@ def cmd_complete(a) -> None:
         v["approved_by"] = a.approved_by
     save_state(repo, st)
     log_event(repo, f"stage {s['id']}: completed {v['status']}" + (f", approved by {a.approved_by}" if a.approved_by else ""))
+    promoted = mark_reviewed(repo, s)
+    if promoted:
+        log_event(repo, f"stage {s['id']}: {promoted} artifact(s) promoted Draft/In Review → Approved on completion")
     added = append_questions(repo, s, v.get("runs", 1))
     if added:
         log_event(repo, f"stage {s['id']}: {added} open question(s) appended to {STATE_DIR}/{QLOG}")
