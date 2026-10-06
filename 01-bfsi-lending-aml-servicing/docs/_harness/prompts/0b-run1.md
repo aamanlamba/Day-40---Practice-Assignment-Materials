@@ -4,7 +4,7 @@
 |---|---|
 | Target repository | `/Users/aamanlamba/Code/Day-40---Practice-Assignment-Materials/01-bfsi-lending-aml-servicing` |
 | Run date (UTC) | 2026-10-06 |
-| Author / agent | Aaman Lamba / Claude Code |
+| Author / agent | Engagement Lead / Claude Code |
 | Stage mode | **READ-ONLY** — do not modify application code, tests, dependencies, configuration, infrastructure, data or workflows; write only this stage's docs folder and the harness report |
 | Git branch | `main` |
 | Base commit | `863a1f807781d2c19b49b27fb2ad182a574ab1df` |
@@ -150,7 +150,7 @@ stage: "0B — Provisional Operating Contract & Engineering Boundaries"
 title: "<artifact title>"
 version: "1.0"
 date: "2026-10-06"
-author: "Aaman Lamba / Claude Code"
+author: "Engagement Lead / Claude Code"
 status: "Draft"            # Draft | Provisional | In Review | Approved | Superseded | Not Applicable
 evidence_sources:
   - "<repo path, test, command output or approved stakeholder evidence>"
@@ -192,7 +192,7 @@ Write the stage report to `docs/_harness/reports/0b.md` using exactly this templ
 stage: "0B"
 stage_name: "Provisional Operating Contract & Engineering Boundaries"
 date: "2026-10-06"
-author: "Aaman Lamba / Claude Code"
+author: "Engagement Lead / Claude Code"
 run: 1
 stage_status: "PASS"       # PASS | CONDITIONAL PASS | BLOCKED
 ---

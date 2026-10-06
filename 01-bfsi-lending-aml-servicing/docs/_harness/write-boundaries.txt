@@ -3,5 +3,25 @@
 # Populate ONLY after Stage 0B proposes them in
 #   docs/00-preflight/operating-contract/repository-write-boundaries.md
 # and a human approves them (record the approver below). Empty = no implementation writes allowed.
-# approved-by:
-# approved-at:
+# approved-by: Engagement Lead
+# approved-at: 2026-10-06
+# Union of the per-stage proposals (the harness enforces one list for all write stages).
+# Protected regardless: data/**, docs/legacy/**, prior-stage docs, harness state, README.md, CHANGE_REQUEST.md, WORKSHOP_SCENARIO.md.
+backend/app/**
+adapters/**
+etl/**
+tests/**
+requirements.txt
+backend/app/intelligence/**
+tests/intelligence/**
+frontend/src/**
+frontend/e2e/**
+tests/integration/**
+backend/app/agents/**
+tests/agents/**
+scripts/**
+pytest.ini
+pyproject.toml
+observability/**
+.github/**
+Dockerfile*

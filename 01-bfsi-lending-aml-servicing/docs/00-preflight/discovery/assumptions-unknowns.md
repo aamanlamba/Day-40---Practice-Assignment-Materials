@@ -3,7 +3,7 @@ stage: "0A — Pre-Flight Repository & System Orientation"
 title: "Assumptions and Unknowns Register"
 version: "1.0"
 date: "2026-10-06"
-author: "Aaman Lamba / Claude Code"
+author: "Engagement Lead / Claude Code"
 status: "Draft"
 evidence_sources:
   - "All 0A discovery artifacts in docs/00-preflight/discovery/"

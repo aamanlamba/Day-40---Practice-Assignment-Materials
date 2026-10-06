@@ -3,7 +3,7 @@ stage: "0A — Pre-Flight Repository & System Orientation"
 title: "Repository Overview"
 version: "1.0"
 date: "2026-10-06"
-author: "Aaman Lamba / Claude Code"
+author: "Engagement Lead / Claude Code"
 status: "Draft"
 evidence_sources:
   - "git ls-files (73 tracked files excluding harness history) at base commit 863a1f8"

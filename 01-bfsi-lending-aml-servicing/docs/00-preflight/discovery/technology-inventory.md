@@ -3,7 +3,7 @@ stage: "0A — Pre-Flight Repository & System Orientation"
 title: "Technology Inventory"
 version: "1.0"
 date: "2026-10-06"
-author: "Aaman Lamba / Claude Code"
+author: "Engagement Lead / Claude Code"
 status: "Draft"
 evidence_sources:
   - "requirements.txt, pyproject.toml, pytest.ini"

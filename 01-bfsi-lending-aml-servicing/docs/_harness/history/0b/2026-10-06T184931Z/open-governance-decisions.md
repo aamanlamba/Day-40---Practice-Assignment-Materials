@@ -3,7 +3,7 @@ stage: "0B — Provisional Operating Contract & Engineering Boundaries"
 title: "Open Governance Decisions"
 version: "1.0"
 date: "2026-10-06"
-author: "Aaman Lamba / Claude Code"
+author: "Engagement Lead / Claude Code"
 status: "Provisional"
 evidence_sources:
   - "docs/00-preflight/discovery/discovery-summary.md"

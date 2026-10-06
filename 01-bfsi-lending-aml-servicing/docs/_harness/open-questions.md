@@ -21,7 +21,7 @@ Status values: OPEN, ANSWERED (with evidence reference), SUPERSEDED.
 | Q-013 | 0A (U-13), 0B (G-05) | Who consumes the API besides the Angular app? | P8 | Stage 5 | OPEN |
 | Q-014 | 0A (U-14) | Does the system behave the same on Python 3.11, the declared minimum? | P8 | Stage 7 | OPEN |
 | Q-015 | 0B (G-01) | Who is the named sponsor, engagement lead and approver of the operating contract? | P1 | Stage 2 | OPEN |
-| Q-016 | 0B (G-17) | Which write globs does a human approve for `docs/_harness/write-boundaries.txt`? | P2, P5 | Before Stage 15 | OPEN |
+| Q-016 | 0B (G-17) | Which write globs does a human approve for `docs/_harness/write-boundaries.txt`? | P2, P5 | Before Stage 15 | ANSWERED: Engagement Lead approved globs 2026-10-06 (`docs/_harness/write-boundaries.txt`) |
 | Q-017 | 0B (G-06, G-07) | Which analyst/underwriter actions must stay human-decided, and what override/escalation evidence is required? | P3, P4 | Stage 23 | OPEN |
 | Q-018 | 0B (G-09) | Who owns AI-model accountability? | P1, P9 | Stage 25 | OPEN |
 | Q-019 | 0B (G-12, G-13) | What vendor/tool approvals and data-access audit policy apply? | P5 | Stage 25 | OPEN |

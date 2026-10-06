@@ -3,7 +3,7 @@ stage: "0A — Pre-Flight Repository & System Orientation"
 title: "Integration Overview"
 version: "1.0"
 date: "2026-10-06"
-author: "Aaman Lamba / Claude Code"
+author: "Engagement Lead / Claude Code"
 status: "Draft"
 evidence_sources:
   - "adapters/legacy_adapter.py, adapters/partner_adapter.py"

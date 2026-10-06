@@ -3,7 +3,7 @@ stage: "0A — Pre-Flight Repository & System Orientation"
 title: "Security and Observability Overview"
 version: "1.0"
 date: "2026-10-06"
-author: "Aaman Lamba / Claude Code"
+author: "Engagement Lead / Claude Code"
 status: "Draft"
 evidence_sources:
   - "backend/app/security.py, backend/app/main.py, backend/app/config.py, backend/app/legacy_utils.py, backend/app/audit.py"
